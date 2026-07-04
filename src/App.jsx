@@ -1,20 +1,16 @@
-import { useState } from "react";
-import "./App.css";
-import Mainbar from "./Components/mainbar";
-import SideToolbar from "./Components/sidetoolbar";
-import UploadSearchSection from "./Wrappers/Qbar&pdfcont";
+import Titlebar from "./components/layout/title-bar";
+import SideBar from "./components/layout/side-bar";
+import UploadSection from "./components/upload-section";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
     <div style={styles.appLayout}>
-      <SideToolbar/>
+      <SideBar />
 
       <main style={styles.mainContainer}>
-        <Mainbar side={{title:'headTitle'}}/>
+        <Titlebar />
 
-        <UploadSearchSection/>
+        <UploadSection />
       </main>
     </div>
   );
@@ -30,12 +26,15 @@ const styles = {
   },
   mainContainer: {
     flex: 1,
+    marginLeft: "280px",
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",
     gap: "32px",
-    padding: "40px"
+    padding: "40px",
+    minHeight: "100vh",
+    boxSizing: "border-box"
   }
 };
 

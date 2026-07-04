@@ -6,12 +6,12 @@ function Questionbar({ value, onChange, onSearch, placeholder = 'Search or ask a
       <input
         type="text"
         value={value}
-        onChange={(e) => onChange && onChange(e.target.value)}
-        onKeyDown={(e) => { if (e.key === 'Enter') onSearch && onSearch(value); }}
+        onChange={(e) => onChange?.(e.target.value)}
+        onKeyDown={(e) => { if (e.key === 'Enter') onSearch?.(value); }}
         placeholder={placeholder}
         style={styles.input}
       />
-      <button aria-label="search" onClick={() => onSearch && onSearch(value)} style={styles.searchButton}>Search</button>
+      <button aria-label="search" onClick={() => onSearch?.(value)} style={styles.searchButton}>Search</button>
     </div>
   );
 }

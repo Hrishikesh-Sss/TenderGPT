@@ -18,10 +18,6 @@ const SideToolbar = () => {
     title: '',
   }));
 
-  const recentSlots = Array.from({ length: 7 }, (_, index) => ({
-    id: index,
-    title: '',
-  }));
 
   return (
     <aside style={styles.sidebar}>

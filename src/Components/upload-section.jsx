@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import Fileuploader from '../Components/pdfcontainer';
-import Questionbar from '../Components/Questionbar';
+import Fileuploader from './pdfcontainer';
+import Questionbar from './question-bar';
 
-function UploadSearchSection() {
+function UploadSection() {
   const [uploadedFile, setUploadedFile] = useState(null);
   const [query, setQuery] = useState('');
   const [error, setError] = useState('');
@@ -21,7 +21,7 @@ function UploadSearchSection() {
       if (!response.ok) {
         throw new Error("Failed to upload the document.");
       }
-      const data = await response.json();
+      await response.json();
       alert('Success!');
     } catch (error) {
       console.error("Connection Error:", error);
@@ -45,7 +45,7 @@ function UploadSearchSection() {
   return (
     <>
       <Fileuploader onFileSelect={handleUploadedFile}/>
-      <Questionbar value={query} onChange={setQuery} onSearch={handleSearch}/>
+      <Questionbar value={query} onChange={setQuery} onSearch={handleSearch}/>  
       {error && <p style={styles.errorText}>{error}</p>}
     </>
   );
@@ -58,4 +58,4 @@ const styles = {
   }
 };
 
-export default UploadSearchSection;
+export default UploadSection;
